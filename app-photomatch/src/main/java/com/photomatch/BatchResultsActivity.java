@@ -21,7 +21,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
 import com.photomatch.api.BatchResult;
 import com.photomatch.api.ProcessResponse;
@@ -80,23 +79,21 @@ public class BatchResultsActivity extends AppCompatActivity {
         public void onBindViewHolder(VH holder, int position) {
             BatchResult result = results.get(position);
 
-            // Original thumbnail — load from URI
+            // Original thumbnail — load from URI with default Glide caching
             if (uriStrings != null && position < uriStrings.size()) {
                 Uri uri = Uri.parse(uriStrings.get(position));
                 Glide.with(BatchResultsActivity.this)
                     .load(uri)
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
-                    .skipMemoryCache(true)
                     .centerCrop()
                     .into(holder.ivOriginal);
             }
 
-            // Corrected thumbnail — decode base64
+            // Corrected thumbnail — load byte[] via Glide (lifecycle-managed)
             byte[] correctedBytes = decodeBase64(result.correctedB64);
-            if (correctedBytes != null) {
-                Bitmap bmp = decodeSampled(correctedBytes, 256);
-                holder.ivCorrected.setImageBitmap(bmp);
-            }
+            Glide.with(BatchResultsActivity.this)
+                .load(correctedBytes)
+                .centerCrop()
+                .into(holder.ivCorrected);
 
             holder.tvSimilarity.setText(
                 String.format(Locale.US, "%d%%", Math.round(result.similarity * 100)));
@@ -106,6 +103,13 @@ public class BatchResultsActivity extends AppCompatActivity {
         }
 
         @Override public int getItemCount() { return results.size(); }
+
+        @Override
+        public void onViewRecycled(VH holder) {
+            super.onViewRecycled(holder);
+            Glide.with(BatchResultsActivity.this).clear(holder.ivOriginal);
+            Glide.with(BatchResultsActivity.this).clear(holder.ivCorrected);
+        }
 
         class VH extends RecyclerView.ViewHolder {
             final ImageView ivOriginal;
@@ -206,16 +210,4 @@ public class BatchResultsActivity extends AppCompatActivity {
         return Base64.decode(b64, Base64.DEFAULT);
     }
 
-    private static Bitmap decodeSampled(byte[] bytes, int maxSide) {
-        BitmapFactory.Options opts = new BitmapFactory.Options();
-        opts.inJustDecodeBounds = true;
-        BitmapFactory.decodeByteArray(bytes, 0, bytes.length, opts);
-        int inSampleSize = 1;
-        while (Math.max(opts.outWidth, opts.outHeight) / (inSampleSize * 2) > maxSide) {
-            inSampleSize *= 2;
-        }
-        opts.inSampleSize = inSampleSize;
-        opts.inJustDecodeBounds = false;
-        return BitmapFactory.decodeByteArray(bytes, 0, bytes.length, opts);
-    }
 }

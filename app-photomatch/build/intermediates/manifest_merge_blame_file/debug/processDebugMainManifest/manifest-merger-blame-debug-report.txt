@@ -53,192 +53,193 @@
 32-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:14:9-35
 33        android:supportsRtl="true"
 33-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:15:9-35
-34        android:theme="@style/Theme.PhotoMatch"
-34-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:17:9-48
-35        android:usesCleartextTraffic="true" >
-35-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:16:9-44
-36        <activity
-36-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:19:9-26:20
-37            android:name="com.photomatch.MainActivity"
-37-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:20:13-41
-38            android:exported="true" >
-38-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:21:13-36
-39            <intent-filter>
-39-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:22:13-25:29
-40                <action android:name="android.intent.action.MAIN" />
-40-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:23:17-69
-40-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:23:25-66
-41
-42                <category android:name="android.intent.category.LAUNCHER" />
-42-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:24:17-77
-42-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:24:27-74
-43            </intent-filter>
-44        </activity>
-45        <activity
-45-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:28:9-30:40
-46            android:name="com.photomatch.ProcessingActivity"
-46-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:29:13-47
-47            android:exported="false" />
-47-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:30:13-37
-48        <activity
-48-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:32:9-34:40
-49            android:name="com.photomatch.ResultsActivity"
-49-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:33:13-44
-50            android:exported="false" />
-50-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:34:13-37
-51        <activity
-51-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:36:9-38:40
-52            android:name="com.photomatch.DetailActivity"
-52-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:37:13-43
-53            android:exported="false" />
-53-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:38:13-37
-54        <activity
-54-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:40:9-42:40
-55            android:name="com.photomatch.StyleSetupActivity"
-55-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:41:13-47
-56            android:exported="false" />
-56-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:42:13-37
-57        <activity
-57-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:44:9-46:40
-58            android:name="com.photomatch.BatchActivity"
-58-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:45:13-42
-59            android:exported="false" />
-59-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:46:13-37
-60        <activity
-60-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:48:9-50:40
-61            android:name="com.photomatch.BatchResultsActivity"
-61-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:49:13-49
-62            android:exported="false" />
-62-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:50:13-37
-63        <activity
-63-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:52:9-54:40
-64            android:name="com.photomatch.ClusterActivity"
-64-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:53:13-44
-65            android:exported="false" />
-65-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:54:13-37
-66        <activity
-66-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:56:9-58:40
-67            android:name="com.photomatch.ClusterResultsActivity"
-67-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:57:13-51
-68            android:exported="false" />
-68-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:58:13-37
-69        <activity
-69-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:60:9-62:40
-70            android:name="com.photomatch.BurstActivity"
-70-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:61:13-42
-71            android:exported="false" />
-71-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:62:13-37
-72        <activity
-72-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:64:9-66:40
-73            android:name="com.photomatch.BurstResultsActivity"
-73-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:65:13-49
-74            android:exported="false" />
-74-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:66:13-37
-75        <activity
-75-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:68:9-70:40
-76            android:name="com.photomatch.FavoritesActivity"
-76-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:69:13-46
-77            android:exported="false" />
-77-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:70:13-37
-78        <activity
-78-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:72:9-74:40
-79            android:name="com.photomatch.FavoriteDetailActivity"
-79-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:73:13-51
-80            android:exported="false" />
-80-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:74:13-37
-81
-82        <provider
-82-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:76:9-84:20
-83            android:name="androidx.core.content.FileProvider"
-83-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:77:13-62
-84            android:authorities="com.photomatch.fileprovider"
-84-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:78:13-62
-85            android:exported="false"
-85-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:79:13-37
-86            android:grantUriPermissions="true" >
-86-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:80:13-47
-87            <meta-data
-87-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:81:13-83:54
-88                android:name="android.support.FILE_PROVIDER_PATHS"
-88-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:82:17-67
-89                android:resource="@xml/file_paths" />
-89-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:83:17-51
-90        </provider>
-91
-92        <service
-92-->[androidx.room:room-runtime:2.6.1] C:\Users\alexa\.gradle\caches\transforms-4\73470fe24646c1c483929b02c89f8bbe\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
-93            android:name="androidx.room.MultiInstanceInvalidationService"
-93-->[androidx.room:room-runtime:2.6.1] C:\Users\alexa\.gradle\caches\transforms-4\73470fe24646c1c483929b02c89f8bbe\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
-94            android:directBootAware="true"
-94-->[androidx.room:room-runtime:2.6.1] C:\Users\alexa\.gradle\caches\transforms-4\73470fe24646c1c483929b02c89f8bbe\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
-95            android:exported="false" />
-95-->[androidx.room:room-runtime:2.6.1] C:\Users\alexa\.gradle\caches\transforms-4\73470fe24646c1c483929b02c89f8bbe\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
-96
-97        <provider
-97-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexa\.gradle\caches\transforms-4\7d4a24b57d56eaf522ce5741c6657a9d\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
-98            android:name="androidx.startup.InitializationProvider"
-98-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexa\.gradle\caches\transforms-4\7d4a24b57d56eaf522ce5741c6657a9d\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
-99            android:authorities="com.photomatch.androidx-startup"
-99-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexa\.gradle\caches\transforms-4\7d4a24b57d56eaf522ce5741c6657a9d\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
-100            android:exported="false" >
-100-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexa\.gradle\caches\transforms-4\7d4a24b57d56eaf522ce5741c6657a9d\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
-101            <meta-data
-101-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexa\.gradle\caches\transforms-4\7d4a24b57d56eaf522ce5741c6657a9d\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
-102                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-102-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexa\.gradle\caches\transforms-4\7d4a24b57d56eaf522ce5741c6657a9d\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
-103                android:value="androidx.startup" />
-103-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexa\.gradle\caches\transforms-4\7d4a24b57d56eaf522ce5741c6657a9d\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
-104            <meta-data
-104-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\alexa\.gradle\caches\transforms-4\d0929b05a14d850184db47e83e770e95\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
-105                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-105-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\alexa\.gradle\caches\transforms-4\d0929b05a14d850184db47e83e770e95\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
-106                android:value="androidx.startup" />
-106-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\alexa\.gradle\caches\transforms-4\d0929b05a14d850184db47e83e770e95\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
-107            <meta-data
-107-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
-108                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-108-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
-109                android:value="androidx.startup" />
-109-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
-110        </provider>
-111
-112        <receiver
-112-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
-113            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-113-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
-114            android:directBootAware="false"
-114-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
-115            android:enabled="true"
-115-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
-116            android:exported="true"
-116-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
-117            android:permission="android.permission.DUMP" >
-117-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
-118            <intent-filter>
-118-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
-119                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-119-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
-119-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
-120            </intent-filter>
-121            <intent-filter>
-121-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
-122                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-122-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
-122-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
-123            </intent-filter>
-124            <intent-filter>
-124-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
-125                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-125-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
-125-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
-126            </intent-filter>
-127            <intent-filter>
-127-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
-128                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-128-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
-128-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
-129            </intent-filter>
-130        </receiver>
-131    </application>
-132
-133</manifest>
+34        android:testOnly="true"
+35        android:theme="@style/Theme.PhotoMatch"
+35-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:17:9-48
+36        android:usesCleartextTraffic="true" >
+36-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:16:9-44
+37        <activity
+37-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:19:9-26:20
+38            android:name="com.photomatch.MainActivity"
+38-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:20:13-41
+39            android:exported="true" >
+39-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:21:13-36
+40            <intent-filter>
+40-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:22:13-25:29
+41                <action android:name="android.intent.action.MAIN" />
+41-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:23:17-69
+41-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:23:25-66
+42
+43                <category android:name="android.intent.category.LAUNCHER" />
+43-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:24:17-77
+43-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:24:27-74
+44            </intent-filter>
+45        </activity>
+46        <activity
+46-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:28:9-30:40
+47            android:name="com.photomatch.ProcessingActivity"
+47-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:29:13-47
+48            android:exported="false" />
+48-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:30:13-37
+49        <activity
+49-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:32:9-34:40
+50            android:name="com.photomatch.ResultsActivity"
+50-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:33:13-44
+51            android:exported="false" />
+51-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:34:13-37
+52        <activity
+52-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:36:9-38:40
+53            android:name="com.photomatch.DetailActivity"
+53-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:37:13-43
+54            android:exported="false" />
+54-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:38:13-37
+55        <activity
+55-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:40:9-42:40
+56            android:name="com.photomatch.StyleSetupActivity"
+56-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:41:13-47
+57            android:exported="false" />
+57-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:42:13-37
+58        <activity
+58-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:44:9-46:40
+59            android:name="com.photomatch.BatchActivity"
+59-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:45:13-42
+60            android:exported="false" />
+60-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:46:13-37
+61        <activity
+61-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:48:9-50:40
+62            android:name="com.photomatch.BatchResultsActivity"
+62-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:49:13-49
+63            android:exported="false" />
+63-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:50:13-37
+64        <activity
+64-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:52:9-54:40
+65            android:name="com.photomatch.ClusterActivity"
+65-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:53:13-44
+66            android:exported="false" />
+66-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:54:13-37
+67        <activity
+67-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:56:9-58:40
+68            android:name="com.photomatch.ClusterResultsActivity"
+68-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:57:13-51
+69            android:exported="false" />
+69-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:58:13-37
+70        <activity
+70-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:60:9-62:40
+71            android:name="com.photomatch.BurstActivity"
+71-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:61:13-42
+72            android:exported="false" />
+72-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:62:13-37
+73        <activity
+73-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:64:9-66:40
+74            android:name="com.photomatch.BurstResultsActivity"
+74-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:65:13-49
+75            android:exported="false" />
+75-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:66:13-37
+76        <activity
+76-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:68:9-70:40
+77            android:name="com.photomatch.FavoritesActivity"
+77-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:69:13-46
+78            android:exported="false" />
+78-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:70:13-37
+79        <activity
+79-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:72:9-74:40
+80            android:name="com.photomatch.FavoriteDetailActivity"
+80-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:73:13-51
+81            android:exported="false" />
+81-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:74:13-37
+82
+83        <provider
+83-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:76:9-84:20
+84            android:name="androidx.core.content.FileProvider"
+84-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:77:13-62
+85            android:authorities="com.photomatch.fileprovider"
+85-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:78:13-62
+86            android:exported="false"
+86-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:79:13-37
+87            android:grantUriPermissions="true" >
+87-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:80:13-47
+88            <meta-data
+88-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:81:13-83:54
+89                android:name="android.support.FILE_PROVIDER_PATHS"
+89-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:82:17-67
+90                android:resource="@xml/file_paths" />
+90-->C:\Users\alexa\Documents\GitHub\CLIP-Android\app-photomatch\src\main\AndroidManifest.xml:83:17-51
+91        </provider>
+92
+93        <service
+93-->[androidx.room:room-runtime:2.6.1] C:\Users\alexa\.gradle\caches\transforms-4\73470fe24646c1c483929b02c89f8bbe\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
+94            android:name="androidx.room.MultiInstanceInvalidationService"
+94-->[androidx.room:room-runtime:2.6.1] C:\Users\alexa\.gradle\caches\transforms-4\73470fe24646c1c483929b02c89f8bbe\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
+95            android:directBootAware="true"
+95-->[androidx.room:room-runtime:2.6.1] C:\Users\alexa\.gradle\caches\transforms-4\73470fe24646c1c483929b02c89f8bbe\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
+96            android:exported="false" />
+96-->[androidx.room:room-runtime:2.6.1] C:\Users\alexa\.gradle\caches\transforms-4\73470fe24646c1c483929b02c89f8bbe\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
+97
+98        <provider
+98-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexa\.gradle\caches\transforms-4\7d4a24b57d56eaf522ce5741c6657a9d\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+99            android:name="androidx.startup.InitializationProvider"
+99-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexa\.gradle\caches\transforms-4\7d4a24b57d56eaf522ce5741c6657a9d\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+100            android:authorities="com.photomatch.androidx-startup"
+100-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexa\.gradle\caches\transforms-4\7d4a24b57d56eaf522ce5741c6657a9d\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+101            android:exported="false" >
+101-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexa\.gradle\caches\transforms-4\7d4a24b57d56eaf522ce5741c6657a9d\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+102            <meta-data
+102-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexa\.gradle\caches\transforms-4\7d4a24b57d56eaf522ce5741c6657a9d\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+103                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+103-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexa\.gradle\caches\transforms-4\7d4a24b57d56eaf522ce5741c6657a9d\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+104                android:value="androidx.startup" />
+104-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexa\.gradle\caches\transforms-4\7d4a24b57d56eaf522ce5741c6657a9d\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+105            <meta-data
+105-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\alexa\.gradle\caches\transforms-4\d0929b05a14d850184db47e83e770e95\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
+106                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+106-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\alexa\.gradle\caches\transforms-4\d0929b05a14d850184db47e83e770e95\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
+107                android:value="androidx.startup" />
+107-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\alexa\.gradle\caches\transforms-4\d0929b05a14d850184db47e83e770e95\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
+108            <meta-data
+108-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+109                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+109-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+110                android:value="androidx.startup" />
+110-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+111        </provider>
+112
+113        <receiver
+113-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+114            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+114-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+115            android:directBootAware="false"
+115-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+116            android:enabled="true"
+116-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+117            android:exported="true"
+117-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+118            android:permission="android.permission.DUMP" >
+118-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+119            <intent-filter>
+119-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+120                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+120-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+120-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+121            </intent-filter>
+122            <intent-filter>
+122-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+123                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+123-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+123-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+124            </intent-filter>
+125            <intent-filter>
+125-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+126                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+126-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+126-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+127            </intent-filter>
+128            <intent-filter>
+128-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+129                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+129-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+129-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexa\.gradle\caches\transforms-4\e039da5ac6793ced0ec342347407d244\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+130            </intent-filter>
+131        </receiver>
+132    </application>
+133
+134</manifest>

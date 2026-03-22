@@ -12,15 +12,14 @@
         android:layout_height="90dp"
         android:scaleType="centerCrop" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btnHeart"
         android:layout_width="match_parent"
         android:layout_height="32dp"
         android:background="@android:color/transparent"
-        android:fontFamily="monospace"
-        android:text="&#9825;"
-        android:textColor="@color/color_amber"
-        android:textSize="16sp" />
+        android:contentDescription="Favorite"
+        android:scaleType="center"
+        android:src="@drawable/ic_star_outline" />
 
     <TextView
         android:id="@+id/tvPhotoScore"

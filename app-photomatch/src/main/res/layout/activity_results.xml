@@ -46,15 +46,14 @@
         android:paddingEnd="16dp"
         android:paddingBottom="8dp">
 
-        <Button
+        <ImageButton
             android:id="@+id/btnHeart"
             android:layout_width="48dp"
             android:layout_height="52dp"
             android:backgroundTint="@color/color_surface"
-            android:fontFamily="monospace"
-            android:text="&#9825;"
-            android:textColor="@color/color_amber"
-            android:textSize="20sp" />
+            android:contentDescription="Favorite"
+            android:scaleType="center"
+            android:src="@drawable/ic_star_outline" />
 
         <Button
             android:id="@+id/btnViewMatch"

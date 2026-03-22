@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,7 +40,7 @@ public class ResultsActivity extends AppCompatActivity {
     private static final String[] DEFECT_LABELS = {"BLUR ", "NOISE", "OVER ", "UNDER", "COMP "};
 
     private int             favoriteId = -1;
-    private Button          btnHeart;
+    private ImageButton     btnHeart;
     private ExecutorService executor;
 
     @Override
@@ -54,7 +55,7 @@ public class ResultsActivity extends AppCompatActivity {
 
         ImageView ivResult = findViewById(R.id.ivResult);
         TextView  tvDefects = findViewById(R.id.tvDefects);
-        btnHeart            = findViewById(R.id.btnHeart);
+        btnHeart            = (ImageButton) findViewById(R.id.btnHeart);
         Button    btnMatch  = findViewById(R.id.btnViewMatch);
         Button    btnSave   = findViewById(R.id.btnSave);
 
@@ -110,7 +111,8 @@ public class ResultsActivity extends AppCompatActivity {
     }
 
     private void updateHeartButton() {
-        btnHeart.setText(favoriteId != -1 ? "\u2665" : "\u2661");
+        btnHeart.setImageResource(favoriteId != -1
+            ? R.drawable.ic_star_filled : R.drawable.ic_star_outline);
     }
 
     private FavoritePhoto buildFavorite(ProcessResponse resp) {

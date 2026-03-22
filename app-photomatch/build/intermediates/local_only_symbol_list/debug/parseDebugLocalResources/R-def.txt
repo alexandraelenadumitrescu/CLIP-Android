@@ -6,6 +6,8 @@ color color_background
 color color_surface
 color color_text
 color color_text_dim
+drawable ic_star_filled
+drawable ic_star_outline
 id btnAnalyze
 id btnBatch
 id btnBurst

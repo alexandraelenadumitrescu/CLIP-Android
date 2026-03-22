@@ -4,7 +4,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +22,6 @@ import com.photomatch.db.FavoritePhoto;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -149,10 +148,14 @@ public class BurstResultsActivity extends AppCompatActivity {
                 holder.rvPhotos.setVisibility(View.GONE);
             }
 
+            // Prevent inner horizontal RV from consuming outer vertical scroll events
+            holder.rvPhotos.setNestedScrollingEnabled(false);
+
             // Only tappable if cluster has more than 1 photo
             if (clusterSize > 1) {
                 holder.itemView.setOnClickListener(v -> {
                     int pos = holder.getAdapterPosition();
+                    if (pos == RecyclerView.NO_POSITION) return;
                     if (expanded.contains(pos)) expanded.remove(pos);
                     else                        expanded.add(pos);
                     notifyItemChanged(pos);
@@ -222,19 +225,19 @@ public class BurstResultsActivity extends AppCompatActivity {
 
             holder.tvPhotoScore.setText(String.format(Locale.US, "%.2f", score));
 
-            // Heart button — check DB state for this URI
+            // Star button — check DB state for this URI
             holder.btnHeart.setEnabled(false);
-            holder.btnHeart.setText("\u2661");
+            holder.btnHeart.setImageResource(R.drawable.ic_star_outline);
             holder.favoriteId = -1;
 
             executor.execute(() -> {
-                // Use URI string as the "retrieved" key for burst photos
                 FavoritePhoto existing = AppDatabase.get(BurstResultsActivity.this)
                     .favoriteDao().findByRetrieved(uri.toString());
                 int id = existing != null ? existing.id : -1;
                 runOnUiThread(() -> {
                     holder.favoriteId = id;
-                    holder.btnHeart.setText(id != -1 ? "\u2665" : "\u2661");
+                    holder.btnHeart.setImageResource(id != -1
+                        ? R.drawable.ic_star_filled : R.drawable.ic_star_outline);
                     holder.btnHeart.setEnabled(true);
                 });
             });
@@ -259,7 +262,8 @@ public class BurstResultsActivity extends AppCompatActivity {
                 }
                 final boolean added = holder.favoriteId != -1;
                 runOnUiThread(() -> {
-                    holder.btnHeart.setText(added ? "\u2665" : "\u2661");
+                    holder.btnHeart.setImageResource(added
+                        ? R.drawable.ic_star_filled : R.drawable.ic_star_outline);
                     holder.btnHeart.setEnabled(true);
                     Toast.makeText(BurstResultsActivity.this,
                         added ? "Added to favorites" : "Removed from favorites",
@@ -284,10 +288,10 @@ public class BurstResultsActivity extends AppCompatActivity {
         @Override public int getItemCount() { return sortedIndices.size(); }
 
         class VH extends RecyclerView.ViewHolder {
-            final ImageView ivPhoto;
-            final Button    btnHeart;
-            final TextView  tvPhotoScore;
-            int             favoriteId = -1;
+            final ImageView   ivPhoto;
+            final ImageButton btnHeart;
+            final TextView    tvPhotoScore;
+            int               favoriteId = -1;
             VH(android.view.View v) {
                 super(v);
                 ivPhoto      = v.findViewById(R.id.ivPhoto);

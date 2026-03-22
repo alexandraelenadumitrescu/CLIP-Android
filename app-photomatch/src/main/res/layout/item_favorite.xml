@@ -34,20 +34,15 @@
             android:textColor="@color/color_text_dim"
             android:textSize="10sp" />
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="6dp"
             android:background="#80000000"
-            android:fontFamily="monospace"
-            android:paddingStart="4dp"
-            android:paddingTop="2dp"
-            android:paddingEnd="4dp"
-            android:paddingBottom="2dp"
-            android:text="&#9829;"
-            android:textColor="@color/color_amber"
-            android:textSize="18sp" />
+            android:contentDescription="Favorited"
+            android:padding="4dp"
+            android:src="@drawable/ic_star_filled" />
 
     </FrameLayout>
 

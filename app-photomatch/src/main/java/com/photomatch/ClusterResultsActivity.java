@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.gson.Gson;
@@ -123,14 +122,18 @@ public class ClusterResultsActivity extends AppCompatActivity {
             Uri uri = uris.get(position);
             Glide.with(ClusterResultsActivity.this)
                 .load(uri)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .skipMemoryCache(true)
                 .centerCrop()
                 .into(holder.iv);
             holder.iv.setOnClickListener(v -> openUri(uri));
         }
 
         @Override public int getItemCount() { return uris.size(); }
+
+        @Override
+        public void onViewRecycled(VH holder) {
+            super.onViewRecycled(holder);
+            Glide.with(ClusterResultsActivity.this).clear(holder.iv);
+        }
 
         class VH extends RecyclerView.ViewHolder {
             final ImageView iv;
