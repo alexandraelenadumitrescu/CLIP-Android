@@ -16,16 +16,18 @@
 
 package com.ml.shubham0204.clipandroid
 
+import android.app.Application
 import android.clip.cpp.CLIPAndroid
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory.decodeStream
 import android.graphics.Matrix
 import android.net.Uri
+import android.util.Log
 import android.util.Size
 import androidx.compose.runtime.mutableStateOf
 import androidx.exifinterface.media.ExifInterface
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.AndroidViewModel
 import com.ml.shubham0204.clipandroid.data.ImagesDB
 import com.ml.shubham0204.clipandroid.data.VectorSearchResults
 import kotlinx.coroutines.CoroutineScope
@@ -34,9 +36,10 @@ import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.File
 import java.nio.ByteBuffer
 
-class MainActivityViewModel : ViewModel() {
+class MainActivityViewModel(application: Application) : AndroidViewModel(application) {
 
     val selectedImagesUriListState = mutableStateOf<List<Uri>>(emptyList())
     val queryTextState = mutableStateOf("")
@@ -53,7 +56,10 @@ class MainActivityViewModel : ViewModel() {
     var visionHyperParameters: CLIPAndroid.CLIPVisionHyperParameters? = null
     var textHyperParameters: CLIPAndroid.CLIPTextHyperParameters? = null
 
-    private val MODEL_PATH = "/data/local/tmp/clip_model_fp16.gguf"
+    private val MODEL_FILENAME = "clip_model.gguf"
+    private val MODEL_PATH_INTERNAL = "${application.filesDir.absolutePath}/$MODEL_FILENAME"
+    private val MODEL_PATH_EXTERNAL = "${application.getExternalFilesDir(null)?.absolutePath}/$MODEL_FILENAME"
+    
     private val NUM_THREADS = 4
     private val VERBOSITY = 1
     private val embeddingDim = 512
@@ -64,10 +70,27 @@ class MainActivityViewModel : ViewModel() {
     init {
         CoroutineScope(Dispatchers.IO).launch {
             mainScope { isLoadingModelState.value = true }
-            clipAndroid.load(MODEL_PATH, VERBOSITY)
-            visionHyperParameters = clipAndroid.visionHyperParameters
-            textHyperParameters = clipAndroid.textHyperParameters
-            mainScope { isLoadingModelState.value = false }
+            
+            // Try Internal path first, then External path
+            val internalFile = File(MODEL_PATH_INTERNAL)
+            val externalFile = File(MODEL_PATH_EXTERNAL)
+            
+            val finalPath = when {
+                internalFile.exists() -> MODEL_PATH_INTERNAL
+                externalFile.exists() -> MODEL_PATH_EXTERNAL
+                else -> null
+            }
+
+            if (finalPath != null) {
+                Log.d("CLIP_MODEL", "Loading model from: $finalPath")
+                clipAndroid.load(finalPath, VERBOSITY)
+                visionHyperParameters = clipAndroid.visionHyperParameters
+                textHyperParameters = clipAndroid.textHyperParameters
+                mainScope { isLoadingModelState.value = false }
+            } else {
+                Log.e("CLIP_MODEL", "Model file NOT found! Checked: \n1. $MODEL_PATH_INTERNAL \n2. $MODEL_PATH_EXTERNAL")
+                mainScope { isLoadingModelState.value = false }
+            }
         }
     }
 

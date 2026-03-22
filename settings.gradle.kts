@@ -25,3 +25,5 @@ rootProject.name = "CLIP Android"
 include(":app-text-image-search")
 
 include(":app-zero-shot-classiify")
+
+include(":app-photomatch")

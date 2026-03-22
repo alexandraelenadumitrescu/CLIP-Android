@@ -1,21 +1,19 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# ObjectBox
+-keep class io.objectbox.** { *; }
+-keep interface io.objectbox.** { *; }
+-keep enum io.objectbox.** { *; }
+-keep class com.ml.shubham0204.clipandroid.data.** { *; }
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# Keep the generated MyObjectBox class
+-keep class com.ml.shubham0204.clipandroid.data.MyObjectBox { *; }
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+# CLIP Android Native
+-keep class android.clip.cpp.** { *; }
+-keepclassmembers class android.clip.cpp.** {
+    native <methods>;
+}
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# General native code
+-keepclasseswithmembernames class * {
+    native <methods>;
+}

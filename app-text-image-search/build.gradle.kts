@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    id("io.objectbox")
 }
 
 android {
@@ -21,7 +22,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -38,6 +39,10 @@ android {
     packaging { resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" } }
 }
 
+configurations.all {
+    exclude(group = "io.objectbox", module = "objectbox-android-objectbrowser")
+}
+
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -50,9 +55,8 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.exifinterface)
 
-    // ObjectBox - vector database
+    // ObjectBox - plugin-ul adauga automat objectbox-android
     debugImplementation("io.objectbox:objectbox-android-objectbrowser:4.0.0")
-    releaseImplementation("io.objectbox:objectbox-android:4.0.0")
 
     // Coil - image loading library
     implementation(libs.coil)
@@ -68,5 +72,3 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
-
-apply(plugin = "io.objectbox")
