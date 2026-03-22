@@ -72,6 +72,12 @@
         <activity
             android:name="com.photomatch.BurstResultsActivity"
             android:exported="false" />
+        <activity
+            android:name="com.photomatch.FavoritesActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.photomatch.FavoriteDetailActivity"
+            android:exported="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -82,6 +88,12 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:directBootAware="true"
+            android:exported="false" />
+
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="com.photomatch.androidx-startup"

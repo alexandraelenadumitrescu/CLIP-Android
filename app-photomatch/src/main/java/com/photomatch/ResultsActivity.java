@@ -2,8 +2,6 @@ package com.photomatch;
 
 import android.content.ContentValues;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,14 +14,21 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.photomatch.api.ApiClient;
+import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.photomatch.api.ProcessResponse;
+import com.photomatch.db.AppDatabase;
+import com.photomatch.db.FavoriteDao;
+import com.photomatch.db.FavoritePhoto;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ResultsActivity extends AppCompatActivity {
 
@@ -33,6 +38,10 @@ public class ResultsActivity extends AppCompatActivity {
     private static final String[] DEFECT_KEYS   = {"blur", "noise", "overexposure", "underexposure", "compression"};
     private static final String[] DEFECT_LABELS = {"BLUR ", "NOISE", "OVER ", "UNDER", "COMP "};
 
+    private int             favoriteId = -1;
+    private Button          btnHeart;
+    private ExecutorService executor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,24 +50,83 @@ public class ResultsActivity extends AppCompatActivity {
         ProcessResponse resp = ResponseCache.current;
         if (resp == null) { finish(); return; }
 
-        ImageView ivResult   = findViewById(R.id.ivResult);
-        TextView  tvDefects  = findViewById(R.id.tvDefects);
-        Button    btnMatch   = findViewById(R.id.btnViewMatch);
-        Button    btnSave    = findViewById(R.id.btnSave);
+        executor = Executors.newSingleThreadExecutor();
 
-        // Show corrected image
-        final byte[] finalBytes = decodeBase64(resp.finalB64);
-        if (finalBytes != null) {
-            ivResult.setImageBitmap(decodeSampled(finalBytes, 1024));
-        }
+        ImageView ivResult = findViewById(R.id.ivResult);
+        TextView  tvDefects = findViewById(R.id.tvDefects);
+        btnHeart            = findViewById(R.id.btnHeart);
+        Button    btnMatch  = findViewById(R.id.btnViewMatch);
+        Button    btnSave   = findViewById(R.id.btnSave);
+
+        // Show corrected image via Glide (manages bitmap lifecycle)
+        Glide.with(this).load(decodeBase64(resp.finalB64)).fitCenter().into(ivResult);
 
         // Defect bars
         tvDefects.setText(buildDefectBars(resp.defects));
 
+        // Check if already favorited
+        executor.execute(() -> {
+            FavoritePhoto existing = AppDatabase.get(this).favoriteDao().findByRetrieved(resp.retrieved);
+            if (existing != null) favoriteId = existing.id;
+            runOnUiThread(this::updateHeartButton);
+        });
+
+        btnHeart.setOnClickListener(v -> toggleFavorite(resp));
+
         btnMatch.setOnClickListener(v ->
             startActivity(new Intent(this, DetailActivity.class)));
 
-        btnSave.setOnClickListener(v -> saveToGallery(finalBytes));
+        btnSave.setOnClickListener(v -> saveToGallery(decodeBase64(resp.finalB64)));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (executor != null) executor.shutdown();
+    }
+
+    private void toggleFavorite(ProcessResponse resp) {
+        executor.execute(() -> {
+            FavoriteDao dao = AppDatabase.get(this).favoriteDao();
+            if (favoriteId != -1) {
+                FavoritePhoto f = new FavoritePhoto();
+                f.id = favoriteId;
+                dao.delete(f);
+                favoriteId = -1;
+            } else {
+                FavoritePhoto f = buildFavorite(resp);
+                dao.insert(f);
+                FavoritePhoto inserted = dao.findByRetrieved(resp.retrieved);
+                favoriteId = inserted != null ? inserted.id : -1;
+            }
+            final boolean added = favoriteId != -1;
+            runOnUiThread(() -> {
+                updateHeartButton();
+                Toast.makeText(this,
+                    added ? "Added to favorites" : "Removed from favorites",
+                    Toast.LENGTH_SHORT).show();
+            });
+        });
+    }
+
+    private void updateHeartButton() {
+        btnHeart.setText(favoriteId != -1 ? "\u2665" : "\u2661");
+    }
+
+    private FavoritePhoto buildFavorite(ProcessResponse resp) {
+        boolean lutApplied = resp.note != null && resp.note.isEmpty();
+        Map<String, Object> imp = new LinkedHashMap<>();
+        if (resp.defects != null) imp.putAll(resp.defects);
+        imp.put("retrieved", resp.retrieved);
+        imp.put("similarity", resp.similarity);
+        imp.put("lut_applied", lutApplied);
+        FavoritePhoto f = new FavoritePhoto();
+        f.originalBase64  = resp.originalB64;
+        f.correctedBase64 = resp.finalB64;
+        f.retrieved       = resp.retrieved;
+        f.timestamp       = System.currentTimeMillis();
+        f.improvements    = new Gson().toJson(imp);
+        return f;
     }
 
     private String buildDefectBars(Map<String, Float> defects) {
@@ -70,7 +138,6 @@ public class ResultsActivity extends AppCompatActivity {
             String bar = FILL.substring(0, filled) + EMPTY.substring(0, 8 - filled);
             sb.append(String.format(Locale.US, "%s %s %.2f\n", DEFECT_LABELS[i], bar, val));
         }
-        // Trim trailing newline
         if (sb.length() > 0) sb.setLength(sb.length() - 1);
         return sb.toString();
     }
@@ -109,23 +176,6 @@ public class ResultsActivity extends AppCompatActivity {
         } catch (IOException e) {
             Toast.makeText(this, "Save failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
-    }
-
-    private static Bitmap decodeSampled(byte[] bytes, int maxSide) {
-        BitmapFactory.Options opts = new BitmapFactory.Options();
-        opts.inJustDecodeBounds = true;
-        BitmapFactory.decodeByteArray(bytes, 0, bytes.length, opts);
-        opts.inSampleSize = computeSampleSize(opts.outWidth, opts.outHeight, maxSide);
-        opts.inJustDecodeBounds = false;
-        return BitmapFactory.decodeByteArray(bytes, 0, bytes.length, opts);
-    }
-
-    private static int computeSampleSize(int width, int height, int maxSide) {
-        int inSampleSize = 1;
-        while (Math.max(width, height) / (inSampleSize * 2) > maxSide) {
-            inSampleSize *= 2;
-        }
-        return inSampleSize;
     }
 
     private static byte[] decodeBase64(String b64) {

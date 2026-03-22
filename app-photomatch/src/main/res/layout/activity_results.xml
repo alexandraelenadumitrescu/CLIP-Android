@@ -47,9 +47,20 @@
         android:paddingBottom="8dp">
 
         <Button
+            android:id="@+id/btnHeart"
+            android:layout_width="48dp"
+            android:layout_height="52dp"
+            android:backgroundTint="@color/color_surface"
+            android:fontFamily="monospace"
+            android:text="&#9825;"
+            android:textColor="@color/color_amber"
+            android:textSize="20sp" />
+
+        <Button
             android:id="@+id/btnViewMatch"
             android:layout_width="0dp"
             android:layout_height="52dp"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
             android:backgroundTint="@color/color_amber"
             android:fontFamily="monospace"
@@ -62,7 +73,7 @@
             android:id="@+id/btnSave"
             android:layout_width="0dp"
             android:layout_height="52dp"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:fontFamily="monospace"

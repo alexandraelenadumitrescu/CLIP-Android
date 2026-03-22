@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.photomatch.app-photomatch-mergeDebugResources-32:/values-ne/values-ne.xml",
+            "outputFile": "com.photomatch.app-photomatch-mergeDebugResources-35:/values-ne/values-ne.xml",
             "map": [
                 {
                     "source": "C:\\Users\\alexa\\.gradle\\caches\\transforms-4\\2545a59e6ce3274418b209e6fbf633ad\\transformed\\material-1.12.0\\res\\values-ne\\values-ne.xml",

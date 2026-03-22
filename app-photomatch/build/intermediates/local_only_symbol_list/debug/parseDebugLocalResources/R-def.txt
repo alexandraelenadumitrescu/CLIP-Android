@@ -12,11 +12,14 @@ id btnBurst
 id btnCamera
 id btnCluster
 id btnExport
+id btnFavorites
 id btnGallery
+id btnHeart
 id btnPick
 id btnProcess
 id btnRetry
 id btnSave
+id btnUnfavorite
 id btnUpload
 id btnViewMatch
 id flCompare
@@ -33,6 +36,7 @@ id ivPreview
 id ivResult
 id progressBar
 id rvClusters
+id rvFavorites
 id rvPhotos
 id rvResults
 id rvThumbnails
@@ -41,7 +45,9 @@ id tabLayout
 id tvClusterCount
 id tvCount
 id tvDefects
+id tvEmpty
 id tvError
+id tvImprovements
 id tvLog
 id tvMatchInfo
 id tvPhotoScore
@@ -50,6 +56,7 @@ id tvRetrieved
 id tvScore
 id tvSetupStyle
 id tvSimilarity
+id tvTimestamp
 id vDivider
 id viewPager
 layout activity_batch
@@ -59,6 +66,8 @@ layout activity_burst_results
 layout activity_cluster
 layout activity_cluster_results
 layout activity_detail
+layout activity_favorite_detail
+layout activity_favorites
 layout activity_main
 layout activity_processing
 layout activity_results
@@ -67,5 +76,6 @@ layout item_batch_result
 layout item_burst_cluster
 layout item_burst_photo
 layout item_cluster_thumb
+layout item_favorite
 style Theme.PhotoMatch
 xml file_paths

@@ -65,6 +65,14 @@
             android:name=".BurstResultsActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".FavoritesActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".FavoriteDetailActivity"
+            android:exported="false" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.photomatch.fileprovider"

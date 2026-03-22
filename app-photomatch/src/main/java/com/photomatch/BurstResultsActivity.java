@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,20 +15,28 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
+import com.photomatch.db.AppDatabase;
+import com.photomatch.db.FavoriteDao;
+import com.photomatch.db.FavoritePhoto;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class BurstResultsActivity extends AppCompatActivity {
 
     private BurstActivity.BurstCache cache;
     private final Set<Integer> expanded = new HashSet<>();
+    private ExecutorService executor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +56,17 @@ public class BurstResultsActivity extends AppCompatActivity {
 
         if (cache == null || cache.clusters == null) { finish(); return; }
 
+        executor = Executors.newSingleThreadExecutor();
+
         RecyclerView rv = findViewById(R.id.rvClusters);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(new ClusterAdapter());
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (executor != null) executor.shutdown();
     }
 
     // --- Cluster list adapter ---
@@ -110,7 +127,7 @@ public class BurstResultsActivity extends AppCompatActivity {
 
             // Score badge
             float bestScore = cache.scores.get(bestIdx);
-            holder.tvScore.setText(String.format(Locale.US, "★ %.2f", bestScore));
+            holder.tvScore.setText(String.format(Locale.US, "\u2605 %.2f", bestScore));
 
             // Cluster count label (hidden for singletons)
             if (clusterSize > 1) {
@@ -178,7 +195,7 @@ public class BurstResultsActivity extends AppCompatActivity {
 
     private class PhotoStripAdapter extends RecyclerView.Adapter<PhotoStripAdapter.VH> {
 
-        private final List<Integer> sortedIndices;   // best→worst order
+        private final List<Integer> sortedIndices;
 
         PhotoStripAdapter(List<Integer> sortedIndices) {
             this.sortedIndices = sortedIndices;
@@ -204,16 +221,77 @@ public class BurstResultsActivity extends AppCompatActivity {
                 .into(holder.ivPhoto);
 
             holder.tvPhotoScore.setText(String.format(Locale.US, "%.2f", score));
+
+            // Heart button — check DB state for this URI
+            holder.btnHeart.setEnabled(false);
+            holder.btnHeart.setText("\u2661");
+            holder.favoriteId = -1;
+
+            executor.execute(() -> {
+                // Use URI string as the "retrieved" key for burst photos
+                FavoritePhoto existing = AppDatabase.get(BurstResultsActivity.this)
+                    .favoriteDao().findByRetrieved(uri.toString());
+                int id = existing != null ? existing.id : -1;
+                runOnUiThread(() -> {
+                    holder.favoriteId = id;
+                    holder.btnHeart.setText(id != -1 ? "\u2665" : "\u2661");
+                    holder.btnHeart.setEnabled(true);
+                });
+            });
+
+            holder.btnHeart.setOnClickListener(v -> toggleBurstFavorite(holder, uri, score));
+        }
+
+        private void toggleBurstFavorite(VH holder, Uri uri, float score) {
+            holder.btnHeart.setEnabled(false);
+            executor.execute(() -> {
+                FavoriteDao dao = AppDatabase.get(BurstResultsActivity.this).favoriteDao();
+                if (holder.favoriteId != -1) {
+                    FavoritePhoto f = new FavoritePhoto();
+                    f.id = holder.favoriteId;
+                    dao.delete(f);
+                    holder.favoriteId = -1;
+                } else {
+                    FavoritePhoto f = buildBurstFavorite(uri, score);
+                    dao.insert(f);
+                    FavoritePhoto inserted = dao.findByRetrieved(uri.toString());
+                    holder.favoriteId = inserted != null ? inserted.id : -1;
+                }
+                final boolean added = holder.favoriteId != -1;
+                runOnUiThread(() -> {
+                    holder.btnHeart.setText(added ? "\u2665" : "\u2661");
+                    holder.btnHeart.setEnabled(true);
+                    Toast.makeText(BurstResultsActivity.this,
+                        added ? "Added to favorites" : "Removed from favorites",
+                        Toast.LENGTH_SHORT).show();
+                });
+            });
+        }
+
+        private FavoritePhoto buildBurstFavorite(Uri uri, float score) {
+            Map<String, Object> imp = new LinkedHashMap<>();
+            imp.put("aesthetic_score", score);
+            FavoritePhoto f = new FavoritePhoto();
+            f.originalBase64  = null;
+            f.correctedBase64 = null;
+            f.uriString       = uri.toString();
+            f.retrieved       = uri.toString();
+            f.timestamp       = System.currentTimeMillis();
+            f.improvements    = new Gson().toJson(imp);
+            return f;
         }
 
         @Override public int getItemCount() { return sortedIndices.size(); }
 
         class VH extends RecyclerView.ViewHolder {
             final ImageView ivPhoto;
+            final Button    btnHeart;
             final TextView  tvPhotoScore;
+            int             favoriteId = -1;
             VH(android.view.View v) {
                 super(v);
                 ivPhoto      = v.findViewById(R.id.ivPhoto);
+                btnHeart     = v.findViewById(R.id.btnHeart);
                 tvPhotoScore = v.findViewById(R.id.tvPhotoScore);
             }
         }

@@ -134,6 +134,18 @@
             android:textColor="@color/color_text_dim"
             android:textSize="13sp" />
 
+        <Button
+            android:id="@+id/btnFavorites"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15"
+            android:text="FAVORITES"
+            android:textColor="@color/color_amber_dim"
+            android:textSize="13sp" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -87,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
         btnBurst.setOnClickListener(v ->
             startActivity(new Intent(this, BurstActivity.class)));
 
+        Button btnFavorites = findViewById(R.id.btnFavorites);
+        btnFavorites.setOnClickListener(v ->
+            startActivity(new Intent(this, FavoritesActivity.class)));
+
         btnCamera.setOnClickListener(v -> {
             if (!hasPermission(Manifest.permission.CAMERA)) {
                 requestPermissions(new String[]{ Manifest.permission.CAMERA });
