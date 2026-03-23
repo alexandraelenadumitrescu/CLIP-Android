@@ -3211,6 +3211,7 @@ id btnPick
 id btnProcess
 id btnRetry
 id btnSave
+id btnStar
 id btnUnfavorite
 id btnUpload
 id btnViewMatch
@@ -3776,6 +3777,7 @@ layout activity_burst
 layout activity_burst_results
 layout activity_cluster
 layout activity_cluster_results
+layout activity_compare
 layout activity_detail
 layout activity_favorite_detail
 layout activity_favorites
