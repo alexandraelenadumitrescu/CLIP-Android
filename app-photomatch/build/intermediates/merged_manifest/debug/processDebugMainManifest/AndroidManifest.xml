@@ -74,6 +74,9 @@
             android:name="com.photomatch.BurstResultsActivity"
             android:exported="false" />
         <activity
+            android:name="com.photomatch.CompareActivity"
+            android:exported="false" />
+        <activity
             android:name="com.photomatch.FavoritesActivity"
             android:exported="false" />
         <activity

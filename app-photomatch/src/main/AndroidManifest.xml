@@ -66,6 +66,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".CompareActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".FavoritesActivity"
             android:exported="false" />
 

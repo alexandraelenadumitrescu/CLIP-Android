@@ -1,6 +1,8 @@
 package com.photomatch;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -86,12 +88,14 @@ public class FavoritesActivity extends AppCompatActivity {
             if (item.uriString != null) {
                 Glide.with(FavoritesActivity.this)
                     .load(Uri.parse(item.uriString))
+                    .placeholder(new ColorDrawable(Color.parseColor("#1A1A1A")))
                     .centerCrop()
                     .into(holder.ivCorrected);
             } else {
                 byte[] bytes = decodeBase64(item.correctedBase64);
                 Glide.with(FavoritesActivity.this)
                     .load(bytes)
+                    .placeholder(new ColorDrawable(Color.parseColor("#1A1A1A")))
                     .centerCrop()
                     .into(holder.ivCorrected);
             }
@@ -106,6 +110,12 @@ public class FavoritesActivity extends AppCompatActivity {
         }
 
         @Override public int getItemCount() { return items.size(); }
+
+        @Override
+        public void onViewRecycled(VH holder) {
+            super.onViewRecycled(holder);
+            Glide.with(FavoritesActivity.this).clear(holder.ivCorrected);
+        }
 
         class VH extends RecyclerView.ViewHolder {
             final ImageView ivCorrected;

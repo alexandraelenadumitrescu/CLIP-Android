@@ -50,6 +50,9 @@ public class ClusterResultsActivity extends AppCompatActivity {
             return;
         }
 
+        // Ensure clusters are in sequential clusterID order regardless of server response ordering
+        cache.response.clusters.sort((a, b) -> Integer.compare(a.clusterID, b.clusterID));
+
         TextView tvScore   = findViewById(R.id.tvScore);
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         ViewPager2 viewPager = findViewById(R.id.viewPager);
@@ -76,6 +79,11 @@ public class ClusterResultsActivity extends AppCompatActivity {
             rv.setLayoutParams(new RecyclerView.LayoutParams(
                 RecyclerView.LayoutParams.MATCH_PARENT,
                 RecyclerView.LayoutParams.MATCH_PARENT));
+            // Prevent ViewPager2 from intercepting vertical scroll events
+            rv.setOnTouchListener((v, e) -> {
+                v.getParent().requestDisallowInterceptTouchEvent(true);
+                return false;
+            });
             return new PageHolder(rv);
         }
 
@@ -87,6 +95,11 @@ public class ClusterResultsActivity extends AppCompatActivity {
         @Override
         public int getItemCount() {
             return cache.response.clusters.size();
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            return position;
         }
 
         class PageHolder extends RecyclerView.ViewHolder {

@@ -170,7 +170,15 @@ public class BurstActivity extends AppCompatActivity {
                 // Phase 2: cluster locally (no server)
                 List<List<Integer>> clusters = BurstClusterer.cluster(clipVectors);
 
-                // Phase 3: cache and navigate
+                // Phase 3: persist URI read permissions before this Activity finishes
+                for (Uri uri : selectedUris) {
+                    try {
+                        getContentResolver().takePersistableUriPermission(
+                            uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    } catch (SecurityException ignored) {}
+                }
+
+                // Phase 4: cache and navigate
                 BurstCache cache = new BurstCache();
                 cache.clusters   = clusters;
                 cache.uriStrings = urisToStrings(selectedUris);

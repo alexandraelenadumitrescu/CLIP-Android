@@ -59,6 +59,7 @@ public class BurstResultsActivity extends AppCompatActivity {
 
         RecyclerView rv = findViewById(R.id.rvClusters);
         rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setItemAnimator(null);
         rv.setAdapter(new ClusterAdapter());
     }
 

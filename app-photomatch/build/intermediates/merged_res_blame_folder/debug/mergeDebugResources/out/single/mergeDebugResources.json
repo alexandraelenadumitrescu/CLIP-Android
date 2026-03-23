@@ -1,51 +1,19 @@
 [
     {
-        "merged": "com.photomatch.app-photomatch-debug-37:/layout_item_favorite.xml.flat",
-        "source": "com.photomatch.app-photomatch-main-39:/layout/item_favorite.xml"
-    },
-    {
-        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_batch_results.xml.flat",
-        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_batch_results.xml"
-    },
-    {
-        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_item_favorite.xml.flat",
-        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\item_favorite.xml"
-    },
-    {
-        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_favorite_detail.xml.flat",
-        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_favorite_detail.xml"
-    },
-    {
-        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_item_burst_cluster.xml.flat",
-        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\item_burst_cluster.xml"
-    },
-    {
-        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_processing.xml.flat",
-        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_processing.xml"
-    },
-    {
-        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_style_setup.xml.flat",
-        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_style_setup.xml"
-    },
-    {
-        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_burst.xml.flat",
-        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_burst.xml"
-    },
-    {
-        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_batch.xml.flat",
-        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_batch.xml"
-    },
-    {
         "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_item_burst_photo.xml.flat",
         "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\item_burst_photo.xml"
     },
     {
         "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_results.xml.flat",
         "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_results.xml"
+    },
+    {
+        "merged": "com.photomatch.app-photomatch-debug-37:/layout_activity_compare.xml.flat",
+        "source": "com.photomatch.app-photomatch-main-39:/layout/activity_compare.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_main.xml"
     },
     {
         "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_item_batch_result.xml.flat",
@@ -64,35 +32,59 @@
         "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\xml\\file_paths.xml"
     },
     {
+        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\drawable_ic_star_outline.xml.flat",
+        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\drawable\\ic_star_outline.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_batch_results.xml.flat",
+        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_batch_results.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_item_favorite.xml.flat",
+        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\item_favorite.xml"
+    },
+    {
         "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_cluster_results.xml.flat",
         "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_cluster_results.xml"
     },
     {
-        "merged": "com.photomatch.app-photomatch-debug-37:/layout_item_burst_photo.xml.flat",
-        "source": "com.photomatch.app-photomatch-main-39:/layout/item_burst_photo.xml"
+        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\drawable_ic_star_filled.xml.flat",
+        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\drawable\\ic_star_filled.xml"
     },
     {
-        "merged": "com.photomatch.app-photomatch-debug-37:/drawable_ic_star_outline.xml.flat",
-        "source": "com.photomatch.app-photomatch-main-39:/drawable/ic_star_outline.xml"
+        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_favorite_detail.xml.flat",
+        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_favorite_detail.xml"
     },
     {
-        "merged": "com.photomatch.app-photomatch-debug-37:/drawable_ic_star_filled.xml.flat",
-        "source": "com.photomatch.app-photomatch-main-39:/drawable/ic_star_filled.xml"
+        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_processing.xml.flat",
+        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_processing.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_item_burst_cluster.xml.flat",
+        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\item_burst_cluster.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_style_setup.xml.flat",
+        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_style_setup.xml"
     },
     {
         "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_item_cluster_thumb.xml.flat",
         "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\item_cluster_thumb.xml"
     },
     {
+        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_burst.xml.flat",
+        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_burst.xml"
+    },
+    {
         "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_cluster.xml.flat",
         "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_cluster.xml"
     },
     {
-        "merged": "com.photomatch.app-photomatch-debug-37:/layout_activity_results.xml.flat",
-        "source": "com.photomatch.app-photomatch-main-39:/layout/activity_results.xml"
-    },
-    {
         "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_favorites.xml.flat",
         "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_favorites.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-debug-37:\\layout_activity_batch.xml.flat",
+        "source": "C:\\Users\\alexa\\.gradle\\daemon\\8.7\\com.photomatch.app-photomatch-main-39:\\layout\\activity_batch.xml"
     }
 ]

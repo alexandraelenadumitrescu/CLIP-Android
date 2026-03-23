@@ -2,8 +2,8 @@ package com.photomatch;
 
 import android.content.ContentValues;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,7 +23,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.photomatch.api.BatchResult;
-import com.photomatch.api.ProcessResponse;
 
 import java.io.File;
 import java.io.FileReader;
@@ -35,6 +34,7 @@ import java.util.concurrent.Executors;
 
 public class BatchResultsActivity extends AppCompatActivity {
 
+    static BatchActivity.BatchCache sharedCache;
     private BatchActivity.BatchCache cache;
 
     @Override
@@ -47,6 +47,7 @@ public class BatchResultsActivity extends AppCompatActivity {
 
         try (FileReader fr = new FileReader(cachePath)) {
             cache = new Gson().fromJson(fr, BatchActivity.BatchCache.class);
+            sharedCache = cache;
         } catch (IOException e) {
             Toast.makeText(this, "Failed to load results", Toast.LENGTH_SHORT).show();
             finish();
@@ -84,6 +85,7 @@ public class BatchResultsActivity extends AppCompatActivity {
                 Uri uri = Uri.parse(uriStrings.get(position));
                 Glide.with(BatchResultsActivity.this)
                     .load(uri)
+                    .placeholder(new ColorDrawable(Color.parseColor("#1A1A1A")))
                     .centerCrop()
                     .into(holder.ivOriginal);
             }
@@ -92,6 +94,7 @@ public class BatchResultsActivity extends AppCompatActivity {
             byte[] correctedBytes = decodeBase64(result.correctedB64);
             Glide.with(BatchResultsActivity.this)
                 .load(correctedBytes)
+                .placeholder(new ColorDrawable(Color.parseColor("#1A1A1A")))
                 .centerCrop()
                 .into(holder.ivCorrected);
 
@@ -99,7 +102,7 @@ public class BatchResultsActivity extends AppCompatActivity {
                 String.format(Locale.US, "%d%%", Math.round(result.similarity * 100)));
             holder.tvRetrieved.setText(result.retrieved);
 
-            holder.itemView.setOnClickListener(v -> openDetail(position, result));
+            holder.itemView.setOnClickListener(v -> openCompare(position, result));
         }
 
         @Override public int getItemCount() { return results.size(); }
@@ -126,36 +129,10 @@ public class BatchResultsActivity extends AppCompatActivity {
         }
     }
 
-    private void openDetail(int position, BatchResult result) {
-        // Build a minimal ProcessResponse for ResponseCache so DetailActivity can compare
-        ProcessResponse pr = new ProcessResponse();
-        pr.finalB64    = result.correctedB64;
-        pr.retrieved   = result.retrieved;
-        pr.similarity  = result.similarity;
-
-        // Encode original image from URI into base64 for the "before" side
-        if (cache.originalUris != null && position < cache.originalUris.size()) {
-            pr.originalB64 = loadUriAsBase64(Uri.parse(cache.originalUris.get(position)));
-        }
-
-        ResponseCache.current = pr;
-        startActivity(new Intent(this, DetailActivity.class));
-    }
-
-    private String loadUriAsBase64(Uri uri) {
-        try {
-            BitmapFactory.Options opts = new BitmapFactory.Options();
-            opts.inSampleSize = 2;
-            java.io.InputStream is = getContentResolver().openInputStream(uri);
-            Bitmap bmp = BitmapFactory.decodeStream(is, null, opts);
-            if (bmp == null) return null;
-            java.io.ByteArrayOutputStream baos = new java.io.ByteArrayOutputStream();
-            bmp.compress(Bitmap.CompressFormat.JPEG, 80, baos);
-            bmp.recycle();
-            return Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT);
-        } catch (IOException e) {
-            return null;
-        }
+    private void openCompare(int position, BatchResult result) {
+        Intent intent = new Intent(this, CompareActivity.class);
+        intent.putExtra(CompareActivity.EXTRA_BATCH_INDEX, position);
+        startActivity(intent);
     }
 
     private void exportAll() {
